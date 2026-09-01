@@ -1,0 +1,24 @@
+<nav class="nav">
+  <a href="{{ '/' | relative_url }}" class="nav-logo">RAITAN</a>
+  <ul class="nav-links">
+    <li><a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}on{% endif %}">HOME</a></li>
+    <li><a href="{{ '/about.html' | relative_url }}" class="{% if page.url == '/about.html' %}on{% endif %}">ABOUT</a></li>
+    <li tabindex="0">
+      <span class="{% if page.url == '/sen.html' or page.url == '/taki.html' or page.url == '/mugen.html' %}on{% endif %}">BATTERIES ▾</span>
+      <div class="nav-dropdown">
+        <a href="{{ '/sen.html' | relative_url }}">SEN</a>
+        <a href="{{ '/taki.html' | relative_url }}">TAKI</a>
+        <a href="{{ '/mugen.html' | relative_url }}">MUGEN</a>
+      </div>
+    </li>
+    <li tabindex="0">
+      <span class="{% if page.url == '/solar-pavement.html' or page.url == '/helionode.html' %}on{% endif %}">SOLAR ▾</span>
+      <div class="nav-dropdown">
+        <a href="{{ '/solar-pavement.html' | relative_url }}">SOLAR PAVEMENT</a>
+        <a href="{{ '/helionode.html' | relative_url }}">HELIONODE</a>
+      </div>
+    </li>
+    <li><a href="{{ '/news.html' | relative_url }}" class="{% if page.url == '/news.html' %}on{% endif %}">NEWS</a></li>
+    <li><a href="{{ '/contact.html' | relative_url }}" class="{% if page.url == '/contact.html' %}on{% endif %}">CONTACT</a></li>
+  </ul>
+</nav>
