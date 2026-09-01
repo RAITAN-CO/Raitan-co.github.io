@@ -11,6 +11,8 @@ description: "Get in touch with Raitan to discuss your battery, solar, or subsea
 
 <div class="section">
   <form action="https://formspree.io/f/xvkokarz" method="POST">
+    <input type="hidden" name="_next" value="{{ '/contact.html?sent=true' | absolute_url }}">
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     <div class="form-row">
       <div class="form-field">
         <label for="first-name">First name</label>
