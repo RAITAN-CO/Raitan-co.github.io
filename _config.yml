@@ -1,0 +1,20 @@
+title: RAITAN
+description: "Custom battery systems, solar energy solutions, and subsea engineering — engineered and assembled to specification in Singapore."
+url: "https://raitan-co.github.io"
+baseurl: ""
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+collections:
+  posts:
+    output: true
+    permalink: /news/:year-:month-:day-:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
