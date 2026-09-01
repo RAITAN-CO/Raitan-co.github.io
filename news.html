@@ -1,0 +1,21 @@
+---
+layout: default
+title: News
+description: "Updates from Raitan Pte Ltd."
+---
+<div class="hero">
+  <p class="hero-eyebrow">Updates</p>
+  <h1>News</h1>
+</div>
+
+<div class="section">
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li class="post-item">
+      <div class="post-date">{{ post.date | date: "%d %b %Y" }}</div>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
