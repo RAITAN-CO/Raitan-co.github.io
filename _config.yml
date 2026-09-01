@@ -19,7 +19,16 @@ defaults:
     values:
       layout: "default"
 
+# Listed explicitly (not relying on Jekyll's built-in defaults) because
+# older Jekyll releases (e.g. the 3.x line bundled by the github-pages
+# gem) replace the default exclude list entirely instead of merging with
+# it once a custom `exclude:` key is present in this file.
 exclude:
   - docs
   - README.md
   - .superpowers
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - .bundle
