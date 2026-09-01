@@ -18,3 +18,8 @@ defaults:
       type: "posts"
     values:
       layout: "default"
+
+exclude:
+  - docs
+  - README.md
+  - .superpowers
