@@ -809,6 +809,20 @@ git commit -m "Build home page"
 
 **Source copy**: from the live Squarespace `/about` page (company description, philosophy) plus the three verified certifications (ISO 9001:2015, IPC-A-610J, IPC/WHMA-A-620E) from the spec.
 
+- [ ] **Step 0: Certificate PDFs are already in place**
+
+Raymond copied the four real certificate PDFs into `assets/certifications/` ahead of this task:
+- `assets/certifications/ISO-9001-2015-Certificate.pdf`
+- `assets/certifications/IPC-A-610J-Raymond-Tan.pdf`
+- `assets/certifications/IPC-WHMA-A-620E-Raymond-Tan.pdf`
+- `assets/certifications/IPC-WHMA-A-620E-Toh-Yue-Khing.pdf`
+
+Verify they're present before starting:
+```bash
+ls assets/certifications/*.pdf | wc -l
+```
+Expected output: `4`
+
 - [ ] **Step 1: Write the About page**
 
 ```html
@@ -845,16 +859,17 @@ description: "Raitan Pte Ltd — Singapore-based engineering firm specialising i
       <h3>ISO 9001:2015</h3>
       <p>Quality Management System — Design and Assembly of Battery Systems.</p>
       <div class="holder">Cert No. Q-047/25 &middot; Issued 24 Apr 2025 &middot; QCERT Singapore</div>
+      <p><a href="{{ '/assets/certifications/ISO-9001-2015-Certificate.pdf' | relative_url }}" class="btn btn-outline" style="margin-top:12px;">VIEW CERTIFICATE &rarr;</a></p>
     </div>
     <div class="cert-card">
       <h3>IPC-A-610J</h3>
       <p>Acceptability of Electronic Assemblies — Class 3 (High Performance/High Reliability Electronic Products).</p>
-      <div class="holder">Certified IPC Specialist: Raymond Tan</div>
+      <div class="holder">Certified IPC Specialist: <a href="{{ '/assets/certifications/IPC-A-610J-Raymond-Tan.pdf' | relative_url }}">Raymond Tan</a></div>
     </div>
     <div class="cert-card">
       <h3>IPC/WHMA-A-620E</h3>
       <p>Requirements and Acceptance for Cable and Wire Harness Assemblies — Class 3.</p>
-      <div class="holder">Certified IPC Specialists: Raymond Tan, Toh Yue Khing</div>
+      <div class="holder">Certified IPC Specialists: <a href="{{ '/assets/certifications/IPC-WHMA-A-620E-Raymond-Tan.pdf' | relative_url }}">Raymond Tan</a>, <a href="{{ '/assets/certifications/IPC-WHMA-A-620E-Toh-Yue-Khing.pdf' | relative_url }}">Toh Yue Khing</a></div>
     </div>
   </div>
 </div>
@@ -868,6 +883,10 @@ grep -q "IPC-A-610J" _site/about.html && \
 grep -q "IPC/WHMA-A-620E" _site/about.html && \
 grep -q "Toh Yue Khing" _site/about.html && \
 grep -q "Q-047/25" _site/about.html && \
+grep -q "certifications/ISO-9001-2015-Certificate.pdf" _site/about.html && \
+grep -q "certifications/IPC-A-610J-Raymond-Tan.pdf" _site/about.html && \
+grep -q "certifications/IPC-WHMA-A-620E-Raymond-Tan.pdf" _site/about.html && \
+grep -q "certifications/IPC-WHMA-A-620E-Toh-Yue-Khing.pdf" _site/about.html && \
 echo PASS || echo FAIL
 ```
 Expected output: `PASS`
@@ -875,11 +894,9 @@ Expected output: `PASS`
 - [ ] **Step 3: Commit**
 
 ```bash
-git add about.html
+git add about.html assets/certifications
 git commit -m "Build About page with Certifications section"
 ```
-
-**Note for the executor:** the three certificate PDFs live in RAITAN's private SharePoint (Quality Control site) — they are not publicly downloadable as-is, and this plan does not include a "view certificate PDF" link for that reason (the approved spec called for one, but no verified way to pull the raw PDF bytes into this repo exists yet). If Raymond supplies exported copies of the three PDFs, add them under `assets/certifications/` and link each `.cert-card h3` to its file — flag this back to Raymond rather than silently skipping it.
 
 ---
 
@@ -1418,4 +1435,3 @@ No commit for this task.
 - Pointing raitan.co's DNS at this site (CrazyDomains change) — Raymond does this himself after reviewing the `raitan-co.github.io` deploy.
 - Sourcing/replacing product photography — this plan ships with the new text/layout system but no new product photos; if Raymond wants imagery added, that's a follow-up task.
 - Formspree account creation — Raymond needs to do this himself and hand over the real form ID (Task 11 ships with a placeholder that must not go live as-is).
-- The three certificate PDF download links on the About page — blocked on getting real PDF bytes from Raymond (see Task 5 note).
