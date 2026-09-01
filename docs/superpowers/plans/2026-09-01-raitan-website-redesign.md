@@ -1231,7 +1231,7 @@ description: "Get in touch with Raitan to discuss your battery, solar, or subsea
 </div>
 
 <div class="section">
-  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+  <form action="https://formspree.io/f/xvkokarz" method="POST">
     <div class="form-row">
       <div class="form-field">
         <label for="first-name">First name</label>
@@ -1263,7 +1263,7 @@ description: "Get in touch with Raitan to discuss your battery, solar, or subsea
 
 Run: `bundle exec jekyll build`
 ```bash
-grep -q "formspree.io" _site/contact.html && grep -q "firstName" _site/contact.html && echo PASS || echo FAIL
+grep -q "formspree.io/f/xvkokarz" _site/contact.html && grep -q "firstName" _site/contact.html && echo PASS || echo FAIL
 ```
 Expected output: `PASS`
 
@@ -1273,8 +1273,6 @@ Expected output: `PASS`
 git add contact.html
 git commit -m "Build Contact page with Formspree form"
 ```
-
-**Note for the executor:** `action="https://formspree.io/f/YOUR_FORM_ID"` is a literal placeholder in the form's `action` attribute — Raymond needs to create a Formspree account, create a form, and give you the real form ID before this goes live. Flag this explicitly; don't ship the site with the placeholder ID live.
 
 ---
 
@@ -1434,4 +1432,3 @@ No commit for this task.
 
 - Pointing raitan.co's DNS at this site (CrazyDomains change) — Raymond does this himself after reviewing the `raitan-co.github.io` deploy.
 - Sourcing/replacing product photography — this plan ships with the new text/layout system but no new product photos; if Raymond wants imagery added, that's a follow-up task.
-- Formspree account creation — Raymond needs to do this himself and hand over the real form ID (Task 11 ships with a placeholder that must not go live as-is).
