@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Raitan Achieves IPC-A-610 & IPC-620 Class 3 Workmanship Certification"
+title: "Raitan Achieves IPC-A-610 & IPC/WHMA-A-620 Class 3 Workmanship Certification"
 description: "Raitan's production and quality personnel are now certified to IPC-A-610 and IPC/WHMA-A-620 at Class 3."
 ---
 
